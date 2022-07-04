@@ -1,0 +1,556 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+<title>计网要点记录</title><link href='https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; --title-bar-height:20px; }
+.mac-os-11 { --title-bar-height:28px; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+body { margin: 0px; padding: 0px; height: auto; bottom: 0px; top: 0px; left: 0px; right: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 36px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+.typora-export .task-list-item input { pointer-events: none; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+  .CodeMirror-sizer { margin-left: 0px !important; }
+  .CodeMirror-gutters { display: none !important; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
+button, input, select, textarea { color: inherit; font: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px; }
+tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror-linenumber { user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-diagram-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li blockquote { margin: 1rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
+  #write { margin-top: 0px; padding-top: 0px; border-color: transparent !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  .typora-export #write { break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+  .is-mac table { break-inside: avoid; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+.MathJax_ref { fill: currentcolor; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.8; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.md-inline-math .MathJax_SVG .noError { display: none !important; }
+.html-for-mac .inline-math-svg .MathJax_SVG { vertical-align: 0.2px; }
+.md-math-block .MathJax_SVG_Display { text-align: center; margin: 0px; position: relative; text-indent: 0px; max-width: none; max-height: none; min-height: 0px; min-width: 100%; width: auto; overflow-y: hidden; display: block !important; }
+.MathJax_SVG_Display, .md-inline-math .MathJax_SVG_Display { width: auto; margin: inherit; display: inline-block !important; }
+.MathJax_SVG .MJX-monospace { font-family: var(--monospace); }
+.MathJax_SVG .MJX-sans-serif { font-family: sans-serif; }
+.MathJax_SVG { display: inline; font-style: normal; font-weight: 400; line-height: normal; zoom: 90%; text-indent: 0px; text-align: left; text-transform: none; letter-spacing: normal; word-spacing: normal; overflow-wrap: normal; white-space: nowrap; float: none; direction: ltr; max-width: none; max-height: none; min-width: 0px; min-height: 0px; border: 0px; padding: 0px; margin: 0px; }
+.MathJax_SVG * { transition: none 0s ease 0s; }
+.MathJax_SVG_Display svg { vertical-align: middle !important; margin-bottom: 0px !important; margin-top: 0px !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+mark .md-meta { color: rgb(0, 0, 0); opacity: 0.3 !important; }
+@media print {
+  .typora-export h1, .typora-export h2, .typora-export h3, .typora-export h4, .typora-export h5, .typora-export h6 { break-inside: avoid; }
+}
+.md-diagram-panel .messageText { stroke: none !important; }
+.md-diagram-panel .start-state { fill: var(--node-fill); }
+.md-diagram-panel .edgeLabel rect { opacity: 1 !important; }
+.md-require-zoom-fix foreignobject { font-size: var(--mermaid-font-zoom); }
+
+
+:root {
+    --side-bar-bg-color: #fafafa;
+    --control-text-color: #777;
+}
+
+@include-when-export url(https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext);
+
+/* open-sans-regular - latin-ext_latin */
+  /* open-sans-italic - latin-ext_latin */
+    /* open-sans-700 - latin-ext_latin */
+    /* open-sans-700italic - latin-ext_latin */
+  html {
+    font-size: 16px;
+}
+
+body {
+    font-family: "Open Sans","Clear Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: rgb(51, 51, 51);
+    line-height: 1.6;
+}
+
+#write {
+    max-width: 860px;
+  	margin: 0 auto;
+  	padding: 30px;
+    padding-bottom: 100px;
+}
+
+@media only screen and (min-width: 1400px) {
+	#write {
+		max-width: 1024px;
+	}
+}
+
+@media only screen and (min-width: 1800px) {
+	#write {
+		max-width: 1200px;
+	}
+}
+
+#write > ul:first-child,
+#write > ol:first-child{
+    margin-top: 30px;
+}
+
+a {
+    color: #4183C4;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    position: relative;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    line-height: 1.4;
+    cursor: text;
+}
+h1:hover a.anchor,
+h2:hover a.anchor,
+h3:hover a.anchor,
+h4:hover a.anchor,
+h5:hover a.anchor,
+h6:hover a.anchor {
+    text-decoration: none;
+}
+h1 tt,
+h1 code {
+    font-size: inherit;
+}
+h2 tt,
+h2 code {
+    font-size: inherit;
+}
+h3 tt,
+h3 code {
+    font-size: inherit;
+}
+h4 tt,
+h4 code {
+    font-size: inherit;
+}
+h5 tt,
+h5 code {
+    font-size: inherit;
+}
+h6 tt,
+h6 code {
+    font-size: inherit;
+}
+h1 {
+    font-size: 2.25em;
+    line-height: 1.2;
+    border-bottom: 1px solid #eee;
+}
+h2 {
+    font-size: 1.75em;
+    line-height: 1.225;
+    border-bottom: 1px solid #eee;
+}
+
+/*@media print {
+    .typora-export h1,
+    .typora-export h2 {
+        border-bottom: none;
+        padding-bottom: initial;
+    }
+
+    .typora-export h1::after,
+    .typora-export h2::after {
+        content: "";
+        display: block;
+        height: 100px;
+        margin-top: -96px;
+        border-top: 1px solid #eee;
+    }
+}*/
+
+h3 {
+    font-size: 1.5em;
+    line-height: 1.43;
+}
+h4 {
+    font-size: 1.25em;
+}
+h5 {
+    font-size: 1em;
+}
+h6 {
+   font-size: 1em;
+    color: #777;
+}
+p,
+blockquote,
+ul,
+ol,
+dl,
+table{
+    margin: 0.8em 0;
+}
+li>ol,
+li>ul {
+    margin: 0 0;
+}
+hr {
+    height: 2px;
+    padding: 0;
+    margin: 16px 0;
+    background-color: #e7e7e7;
+    border: 0 none;
+    overflow: hidden;
+    box-sizing: content-box;
+}
+
+li p.first {
+    display: inline-block;
+}
+ul,
+ol {
+    padding-left: 30px;
+}
+ul:first-child,
+ol:first-child {
+    margin-top: 0;
+}
+ul:last-child,
+ol:last-child {
+    margin-bottom: 0;
+}
+blockquote {
+    border-left: 4px solid #dfe2e5;
+    padding: 0 15px;
+    color: #777777;
+}
+blockquote blockquote {
+    padding-right: 0;
+}
+table {
+    padding: 0;
+    word-break: initial;
+}
+table tr {
+    border-top: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 0;
+}
+table tr:nth-child(2n),
+thead {
+    background-color: #f8f8f8;
+}
+table th {
+    font-weight: bold;
+    border: 1px solid #dfe2e5;
+    border-bottom: 0;
+    margin: 0;
+    padding: 6px 13px;
+}
+table td {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 6px 13px;
+}
+table th:first-child,
+table td:first-child {
+    margin-top: 0;
+}
+table th:last-child,
+table td:last-child {
+    margin-bottom: 0;
+}
+
+.CodeMirror-lines {
+    padding-left: 4px;
+}
+
+.code-tooltip {
+    box-shadow: 0 1px 1px 0 rgba(0,28,36,.3);
+    border-top: 1px solid #eef2f2;
+}
+
+.md-fences,
+code,
+tt {
+    border: 1px solid #e7eaed;
+    background-color: #f8f8f8;
+    border-radius: 3px;
+    padding: 0;
+    padding: 2px 4px 0px 4px;
+    font-size: 0.9em;
+}
+
+code {
+    background-color: #f3f4f4;
+    padding: 0 2px 0 2px;
+}
+
+.md-fences {
+    margin-bottom: 15px;
+    margin-top: 15px;
+    padding-top: 8px;
+    padding-bottom: 6px;
+}
+
+
+.md-task-list-item > input {
+  margin-left: -1.3em;
+}
+
+@media print {
+    html {
+        font-size: 13px;
+    }
+    table,
+    pre {
+        page-break-inside: avoid;
+    }
+    pre {
+        word-wrap: break-word;
+    }
+}
+
+.md-fences {
+	background-color: #f8f8f8;
+}
+#write pre.md-meta-block {
+	padding: 1rem;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #f7f7f7;
+    border: 0;
+    border-radius: 3px;
+    color: #777777;
+    margin-top: 0 !important;
+}
+
+.mathjax-block>.code-tooltip {
+	bottom: .375rem;
+}
+
+.md-mathjax-midline {
+    background: #fafafa;
+}
+
+#write>h3.md-focus:before{
+	left: -1.5625rem;
+	top: .375rem;
+}
+#write>h4.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h5.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h6.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+.md-image>.md-meta {
+    /*border: 1px solid #ddd;*/
+    border-radius: 3px;
+    padding: 2px 0px 0px 4px;
+    font-size: 0.9em;
+    color: inherit;
+}
+
+.md-tag {
+    color: #a7a7a7;
+    opacity: 1;
+}
+
+.md-toc { 
+    margin-top:20px;
+    padding-bottom:20px;
+}
+
+.sidebar-tabs {
+    border-bottom: none;
+}
+
+#typora-quick-open {
+    border: 1px solid #ddd;
+    background-color: #f8f8f8;
+}
+
+#typora-quick-open-item {
+    background-color: #FAFAFA;
+    border-color: #FEFEFE #e5e5e5 #e5e5e5 #eee;
+    border-style: solid;
+    border-width: 1px;
+}
+
+/** focus mode */
+.on-focus-mode blockquote {
+    border-left-color: rgba(85, 85, 85, 0.12);
+}
+
+header, .context-menu, .megamenu-content, footer{
+    font-family: "Segoe UI", "Arial", sans-serif;
+}
+
+.file-node-content:hover .file-node-icon,
+.file-node-content:hover .file-node-open-state{
+    visibility: visible;
+}
+
+.mac-seamless-mode #typora-sidebar {
+    background-color: #fafafa;
+    background-color: var(--side-bar-bg-color);
+}
+
+.md-lang {
+    color: #b4654d;
+}
+
+.html-for-mac .context-menu {
+    --item-hover-bg-color: #E6F0FE;
+}
+
+#md-notification .btn {
+    border: 0;
+}
+
+.dropdown-menu .divider {
+    border-color: #e5e5e5;
+}
+
+.ty-preferences .window-content {
+    background-color: #fafafa;
+}
+
+.ty-preferences .nav-group-item.active {
+    color: white;
+    background: #999;
+}
+
+ :root {--mermaid-font-zoom:1.25em ;} 
+</style>
+</head>
+<body class='typora-export os-windows'>
+<div id='write'  class=''><div class='md-toc' mdtype='toc'><p class="md-toc-content" role="list"><span role="listitem" class="md-toc-item md-toc-h1" data-ref="n3"><a class="md-toc-inner" href="#计网第一课要点记录">计网第一课要点记录</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n4"><a class="md-toc-inner" href="#1互联网标准-internet-standard">1.互联网标准 Internet standard</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n8"><a class="md-toc-inner" href="#2什么是network-edge-什么是-network-core">2.什么是network edge？ 什么是 network core？</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n9"><a class="md-toc-inner" href="#网络边缘">网络边缘：</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n19"><a class="md-toc-inner" href="#网络核心">网络核心：</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n28"><a class="md-toc-inner" href="#3时延">3.时延</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n29"><a class="md-toc-inner" href="#1传输时延-transmission-delay">1.传输时延 transmission delay</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n31"><a class="md-toc-inner" href="#2排队时延-queuing-delay">2.排队时延 queuing delay</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n33"><a class="md-toc-inner" href="#3处理时延-process-delay">3.处理时延 process delay</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n35"><a class="md-toc-inner" href="#4-传播时延-propagation-delay">4. 传播时延 propagation delay</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n38"><a class="md-toc-inner" href="#4isp">4.ISP</a></span><span role="listitem" class="md-toc-item md-toc-h1" data-ref="n45"><a class="md-toc-inner" href="#计网第二课要点记录">计网第二课要点记录</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n46"><a class="md-toc-inner" href="#1网络协议栈">1.网络协议栈</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n49"><a class="md-toc-inner" href="#2-判断queuing-delay-的强度">2. 判断Queuing delay 的强度</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n54"><a class="md-toc-inner" href="#3-吞吐量-throughput">3. 吞吐量 throughput</a></span><span role="listitem" class="md-toc-item md-toc-h1" data-ref="n59"><a class="md-toc-inner" href="#计网第三课要点记录">计网第三课要点记录</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n60"><a class="md-toc-inner" href="#1-应用层的结构">1. 应用层的结构</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n67"><a class="md-toc-inner" href="#2-socket-要点">2. socket 要点</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n72"><a class="md-toc-inner" href="#3-tcp-udp-分别提供什么-不提供什么">3. TCP UDP 分别提供什么， 不提供什么</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n74"><a class="md-toc-inner" href="#tcp-提供">TCP 提供：</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n81"><a class="md-toc-inner" href="#tcp-不提供">TCP 不提供：</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n85"><a class="md-toc-inner" href="#udp-提供">UDP 提供：</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n88"><a class="md-toc-inner" href="#udp-不提供">UDP 不提供：</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n97"><a class="md-toc-inner" href="#4使用tcpudp-的应用">4.使用TCP/UDP 的应用</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n105"><a class="md-toc-inner" href="#5-http-知识点">5. HTTP 知识点</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n106"><a class="md-toc-inner" href="#overview">overview</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n111"><a class="md-toc-inner" href="#连接方式">连接方式</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n117"><a class="md-toc-inner" href="#http响应码">HTTP响应码</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n124"><a class="md-toc-inner" href="#cookies-和-cache-的区别">Cookies 和 Cache 的区别</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n125"><a class="md-toc-inner" href="#1-cookies-的用途">1. Cookies 的用途</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n129"><a class="md-toc-inner" href="#2-cache">2. Cache</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n132"><a class="md-toc-inner" href="#6电子邮件知识点总结">6.电子邮件知识点总结</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n133"><a class="md-toc-inner" href="#1-常见的电子邮件协议">1. 常见的电子邮件协议</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n137"><a class="md-toc-inner" href="#2-上述协议的作用--位置">2. 上述协议的作用 &amp; 位置</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n143"><a class="md-toc-inner" href="#7-dns-知识点总结">7. DNS 知识点总结</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n144"><a class="md-toc-inner" href="#1-把网站的名字-映射成-ip地址">1. 把网站的名字 映射成 ip地址</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n146"><a class="md-toc-inner" href="#2-特点">2. 特点</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n153"><a class="md-toc-inner" href="#3一个dns-查询流程的例子">3.一个DNS 查询流程的例子</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n159"><a class="md-toc-inner" href="#tld">TLD</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n163"><a class="md-toc-inner" href="#authoritative-dns-server">authoritative DNS server</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n166"><a class="md-toc-inner" href="#迭代查询-vs-递归查询">迭代查询 VS 递归查询</a></span><span role="listitem" class="md-toc-item md-toc-h1" data-ref="n173"><a class="md-toc-inner" href="#计网第五课要点记录">计网第五课要点记录</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n178"><a class="md-toc-inner" href="#1-传输层数据单元">1. 传输层数据单元</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n181"><a class="md-toc-inner" href="#2-tcpudp-的特点">2. TCP/UDP 的特点</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n182"><a class="md-toc-inner" href="#tcp">TCP</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n186"><a class="md-toc-inner" href="#udp">UDP</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n191"><a class="md-toc-inner" href="#3多路复用multiplexing和多路分解demultiplexing）">3.多路复用(multiplexing)和多路分解(demultiplexing）</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n203"><a class="md-toc-inner" href="#4udp-知识点总结">4.UDP 知识点总结</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n205"><a class="md-toc-inner" href="#1-使用udp-的应用层协议">1. 使用UDP 的应用层协议</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n208"><a class="md-toc-inner" href="#2-使用udp-如何进行可靠数据传输">2. 使用UDP 如何进行可靠数据传输</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n211"><a class="md-toc-inner" href="#3udp-报文段的header">3.UDP 报文段的Header</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n219"><a class="md-toc-inner" href="#5-rdt-版本演进">5. rdt 版本演进 </a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n221"><a class="md-toc-inner" href="#rdt10">rdt1.0</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n225"><a class="md-toc-inner" href="#rdt20">rdt2.0</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n227"><a class="md-toc-inner" href="#rdt20-n227">rdt2.0</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n231"><a class="md-toc-inner" href="#rdt21">rdt2.1</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n234"><a class="md-toc-inner" href="#rdt22">rdt2.2</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n237"><a class="md-toc-inner" href="#rdt30">rdt3.0</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n251"><a class="md-toc-inner" href="#采用流水线pipeline方法增大利用率">采用<strong>流水线(pipeline)方法</strong>增大利用率</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n254"><a class="md-toc-inner" href="#回退n步的细节">回退n步的细节</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n261"><a class="md-toc-inner" href="#选择性重发的细节">选择性重发的细节</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n265"><a class="md-toc-inner" href="#tcp-flow-control--congestion-control">TCP FLow Control &amp; Congestion Control</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n266"><a class="md-toc-inner" href="#flow-control">FLow Control</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n270"><a class="md-toc-inner" href="#retransmission-的三种情景">retransmission 的三种情景</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n278"><a class="md-toc-inner" href="#tcp-fast-retransmissiontcp-快速重传）">TCP fast retransmission（tcp 快速重传）</a></span><span role="listitem" class="md-toc-item md-toc-h1" data-ref="n281"><a class="md-toc-inner" href="#计网第七课第八课第九课知识点总结">计网第七课、第八课、第九课知识点总结</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n291"><a class="md-toc-inner" href="#1-data-plane">1. Data Plane</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n292"><a class="md-toc-inner" href="#路由器的结构">路由器的结构：</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n307"><a class="md-toc-inner" href="#ip-数据报的格式">IP 数据报的格式</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n318"><a class="md-toc-inner" href="#子网subnet）">子网（Subnet）</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n329"><a class="md-toc-inner" href="#natnetwork-address-transition）技术">NAT（Network Address Transition）技术</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n330"><a class="md-toc-inner" href="#什么是私有ip地址">什么是私有IP地址</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n332"><a class="md-toc-inner" href="#nat的工作流程">NAT的工作流程：</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n340"><a class="md-toc-inner" href="#它的争议点在哪里">它的争议点在哪里：</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n344"><a class="md-toc-inner" href="#怎样得到ip-地址">怎样得到ip 地址</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n345"><a class="md-toc-inner" href="#如何得到一个子网号">如何得到一个子网号？</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n347"><a class="md-toc-inner" href="#那isp-怎么得到一大块ip地址">那ISP 怎么得到一大块ip地址： </a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n351"><a class="md-toc-inner" href="#一个主机如何得到自己的ip">一个主机如何得到自己的ip？</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n358"><a class="md-toc-inner" href="#control-plane">Control Plane</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n363"><a class="md-toc-inner" href="#什么是as自治系统）">什么是AS（自治系统）</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n366"><a class="md-toc-inner" href="#intra-as-routing">intra-As routing</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n375"><a class="md-toc-inner" href="#inter-as-routing">inter-As routing </a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n378"><a class="md-toc-inner" href="#intra--as-routing-protocol">Intra -AS Routing Protocol</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n384"><a class="md-toc-inner" href="#hierarchical-ospf">Hierarchical OSPF</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n391"><a class="md-toc-inner" href="#inter---as-routingbgp）">Inter - AS Routing（BGP）</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n404"><a class="md-toc-inner" href="#bgp里的两个定义">BGP里的两个定义</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n408"><a class="md-toc-inner" href="#bgp工作的流程">BGP工作的流程</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n416"><a class="md-toc-inner" href="#bgp下如何设置路由器的路由表">BGP下如何设置路由器的路由表</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n423"><a class="md-toc-inner" href="#icmpinternet-control-message-protocol）">ICMP（Internet Control Message Protocol）</a></span><span role="listitem" class="md-toc-item md-toc-h1" data-ref="n427"><a class="md-toc-inner" href="#计网第十一课十二课知识点总结">计网第十一课、十二课知识点总结</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n429"><a class="md-toc-inner" href="#linklayer-提供的服务">Linklayer 提供的服务：</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n438"><a class="md-toc-inner" href="#multi-access-protocol">Multi access protocol</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n445"><a class="md-toc-inner" href="#3种broadcast-的类别">3种broadcast 的类别</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n450"><a class="md-toc-inner" href="#1partition-的方法">1.partition 的方法</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n456"><a class="md-toc-inner" href="#2random-access随机接入）几种协议">2.random access（随机接入）几种协议</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n476"><a class="md-toc-inner" href="#mac-介绍">MAC 介绍</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n478"><a class="md-toc-inner" href="#mac基本概念">MAC基本概念</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n487"><a class="md-toc-inner" href="#与mac有关的协议arpaddress-resolution-protocol）">与MAC有关的协议ARP（Address Resolution Protocol）</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n500"><a class="md-toc-inner" href="#广域网">广域网</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n502"><a class="md-toc-inner" href="#以太网技术">以太网技术</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n510"><a class="md-toc-inner" href="#交换机switch）">交换机（Switch）</a></span></p></div><p>&nbsp;</p><h1><a name="计网第一课要点记录" class="md-header-anchor"></a><span>计网第一课要点记录</span></h1><h2><a name="1互联网标准-internet-standard" class="md-header-anchor"></a><span>1.互联网标准 Internet standard</span></h2><p><span>RFC: Request For Comments 请求评论</span></p><p><span>IETF:国际互联网工程任务组（The Internet Engineering Task Force，简称 IETF）</span></p><p>&nbsp;</p><h2><a name="2什么是network-edge-什么是-network-core" class="md-header-anchor"></a><span>2.什么是network edge？ 什么是 network core？</span></h2><h3><a name="网络边缘" class="md-header-anchor"></a><span>网络边缘：</span></h3><ol start='' ><li><p><span>端系统</span></p></li><li><p><span>接入网（access networks）</span></p><p><span>接入网被形象地称为“最后一公里” 常见有：</span><strong><span>铜线</span></strong><span>（普通电话线）接入、</span><strong><span>光纤</span></strong><span>接入（FTTH）、</span><strong><span>光纤同轴电缆</span></strong><span>（HFC）（有线电视电缆）混合接入和无线接入等几种方式</span></p><p><img src="D:\学习笔记\计算机网络\重要图片图床\接入网.png" referrerpolicy="no-referrer" alt="接入网"></p></li><li><p><span>links 链路</span></p></li></ol><h3><a name="网络核心" class="md-header-anchor"></a><span>网络核心：</span></h3><ol start='' ><li><span>packet switching</span></li><li><span>circuit switching</span></li><li><span>network structure</span></li></ol><p><span>核心网络的功能： routing and forwarding 路由和跳转</span></p><h2><a name="3时延" class="md-header-anchor"></a><span>3.时延</span></h2><h3><a name="1传输时延-transmission-delay" class="md-header-anchor"></a><span>1.传输时延 transmission delay</span></h3><p><span>指的是</span><strong><span>最后一公里</span></strong><span>地时延 计算公式为L/R ，由于一个端到端的传输时延要走两个“最后一公里” 所以</span><strong><span>端到端</span></strong><span> 的传输时延为 2 * L/R。</span></p><h3><a name="2排队时延-queuing-delay" class="md-header-anchor"></a><span>2.排队时延 queuing delay</span></h3><p><span>当 到达速率 &gt; 传输时延时，会发生排队时延</span></p><h3><a name="3处理时延-process-delay" class="md-header-anchor"></a><span>3.处理时延 process delay</span></h3><p><span>检验比特错误，决定输出链路等处理所带来的时延</span></p><h3><a name="4-传播时延-propagation-delay" class="md-header-anchor"></a><span>4. 传播时延 propagation delay</span></h3><p><span>在长长的物理介质上传输的时延 ， 请注意区分 </span><strong><span>传输时延</span></strong></p><p>&nbsp;</p><h2><a name="4isp" class="md-header-anchor"></a><span>4.ISP</span></h2><p><span>全称为：Internet service provider 它的出现是为了减少不同接入网互联时带来的复杂， ISP 的作用是“网络的网络”</span></p><p><img src="D:\学习笔记\计算机网络\重要图片图床\ISP.png" referrerpolicy="no-referrer" alt="ISP"></p><p>&nbsp;</p><p><span>IXP :  Internet Exchange Point </span><strong><span>因特网交换点</span></strong></p><p>&nbsp;</p><p>&nbsp;</p><h1><a name="计网第二课要点记录" class="md-header-anchor"></a><span>计网第二课要点记录</span></h1><h2><a name="1网络协议栈" class="md-header-anchor"></a><span>1.网络协议栈</span></h2><p>&nbsp;</p><p><img src="D:\学习笔记\计算机网络\重要图片图床\协议栈.png" referrerpolicy="no-referrer" alt="协议栈"></p><h2><a name="2-判断queuing-delay-的强度" class="md-header-anchor"></a><span>2. 判断Queuing delay 的强度</span></h2><p><img src="D:\学习笔记\计算机网络\重要图片图床\排队时延强度量化.png" referrerpolicy="no-referrer" alt="排队时延强度量化"></p><p><span>a 一般作为一个常数题目会直接给出   </span></p><p><span>L * a 的量纲表示 每秒</span><strong><span>n 个包</span></strong><span>总共包含的bit数</span></p><p>&nbsp;</p><h2><a name="3-吞吐量-throughput" class="md-header-anchor"></a><span>3. 吞吐量 throughput</span></h2><p><span>throughput 的单位实际上是rate（bits/time unit） throughput 的值取决于</span><strong><span>几个速率中最小</span></strong><span>的那个</span></p><p><span>下图为一个例子</span></p><p><img src="D:\学习笔记\计算机网络\重要图片图床\吞吐量.png" referrerpolicy="no-referrer" alt="吞吐量"></p><p>&nbsp;</p><h1><a name="计网第三课要点记录" class="md-header-anchor"></a><span>计网第三课要点记录</span></h1><h2><a name="1-应用层的结构" class="md-header-anchor"></a><span>1. 应用层的结构</span></h2><ol start='' ><li><span>client - server</span></li><li><span>peer-to-peer（P2P）</span></li></ol><p>&nbsp;</p><h2><a name="2-socket-要点" class="md-header-anchor"></a><span>2. socket 要点</span></h2><ol start='' ><li><p><span>存在于</span><strong><span>应用层</span></strong><span>与</span><strong><span>运输层</span></strong><span>之间</span></p><p>&nbsp;</p></li></ol><h2><a name="3-tcp-udp-分别提供什么-不提供什么" class="md-header-anchor"></a><span>3. TCP UDP 分别提供什么， 不提供什么</span></h2><p><img src="D:\学习笔记\计算机网络\重要图片图床\TCP UDP、.png" referrerpolicy="no-referrer"></p><h3><a name="tcp-提供" class="md-header-anchor"></a><span>TCP 提供：</span></h3><p><span>稳定传输 reliable transport</span></p><p><span>流量控制 flow control</span></p><p><span>注： 流量控制即指 去trade-off 一次发多少个MSS(</span><strong><span>Maximum Segment Size，TCP一次传输发送的最大数据段长度</span></strong><span>)</span></p><p><span>拥塞控制 congestion control</span></p><p>&nbsp;</p><p><strong><span>TCP 是面向连接的！！！！</span></strong></p><h3><a name="tcp-不提供" class="md-header-anchor"></a><span>TCP 不提供：</span></h3><p><span>时间保证（比如多长时间内一定交付）</span></p><p><span>最小吞吐量</span></p><p><span>安全</span></p><h3><a name="udp-提供" class="md-header-anchor"></a><span>UDP 提供：</span></h3><p><strong><span>不可靠</span></strong><span>的数据传输</span></p><p>&nbsp;</p><h3><a name="udp-不提供" class="md-header-anchor"></a><span>UDP 不提供：</span></h3><p><span>可靠数据传输</span></p><p><span>流量控制</span></p><p><span>拥塞控制</span></p><p><span>时间保证</span></p><p><span>吞吐量</span></p><p><span>安全</span></p><p><strong><span>面向连接</span></strong></p><p>&nbsp;</p><h2><a name="4使用tcpudp-的应用" class="md-header-anchor"></a><span>4.使用TCP/UDP 的应用</span></h2><p><img src="D:\学习笔记\计算机网络\重要图片图床\应用与协议.png" referrerpolicy="no-referrer" alt="应用与协议"></p><p><span>文件 ， 文本 ， 邮件 ， web(即</span><strong><span>SMTP</span></strong><span>、</span><strong><span>HTTP</span></strong><span>、</span><strong><span>FTP</span></strong><span> ) 全是TCP</span></p><p><span>多媒体，视频电话 ，</span><strong><span>DNS</span></strong><span> 可TCP ，可UDP</span></p><p><span>SNMP(简单网络管理协议) 使用UDP</span></p><p><span>DNS 可以认为使用</span><strong><span>UDP</span></strong></p><p><span>DHCP 使用</span><strong><span>UDP</span></strong></p><p>&nbsp;</p><h2><a name="5-http-知识点" class="md-header-anchor"></a><span>5. HTTP 知识点</span></h2><h3><a name="overview" class="md-header-anchor"></a><span>overview</span></h3><p><span>全称：hypertext transfer protocol 超文本传输协议</span></p><p><span>是一种stateless 协议 ， 即不会保存用户之前的状态与信息</span></p><p><span>使用</span><strong><span>80</span></strong><span>端口</span></p><p>&nbsp;</p><h3><a name="连接方式" class="md-header-anchor"></a><span>连接方式</span></h3><p><span>HTTP 连接分为 </span><strong><span>持续链接persistent HTTP </span></strong><span> 和 </span><strong><span>非持续链接 non-persistent HTTP</span></strong></p><p><span>持续连接： 多个对象可以通过一个TCP 连接进行传输</span></p><p><span>非持续连接：一个连接最多传输一个对象 ， 每一次传输结束TCP连接就会关闭</span></p><p><span>					</span><span>对于每个请求，非持久HTTP将具有</span><strong><span>不同的套接字</span></strong></p><p>&nbsp;</p><h3><a name="http响应码" class="md-header-anchor"></a><span>HTTP响应码</span></h3><p><span>200 - OK</span></p><p><span>301 - Moved Permanently</span></p><p><span>400 - Bad Request</span></p><p><span>404 - Not Found</span></p><p><span>505 - HTTP Version</span></p><p>&nbsp;</p><h2><a name="cookies-和-cache-的区别" class="md-header-anchor"></a><span>Cookies 和 Cache 的区别</span></h2><h3><a name="1-cookies-的用途" class="md-header-anchor"></a><span>1. Cookies 的用途</span></h3><p><img src="D:\学习笔记\计算机网络\重要图片图床\cookie.png" referrerpolicy="no-referrer" alt="cookie"></p><p><span>验证、购物车、推荐、email保持绘画</span></p><p>&nbsp;</p><h3><a name="2-cache" class="md-header-anchor"></a><span>2. Cache</span></h3><p><span>把常用的网页 </span><strong><span>缓存到proxy service</span></strong><span>中，如果proxy中有缓存，就直接返回object，如果没有，再去请求。</span></p><p>&nbsp;</p><h2><a name="6电子邮件知识点总结" class="md-header-anchor"></a><span>6.电子邮件知识点总结</span></h2><h3><a name="1-常见的电子邮件协议" class="md-header-anchor"></a><span>1. 常见的电子邮件协议</span></h3><p><span>SMTP - 简单邮件传输协议 占用端口位</span><strong><span>25</span></strong><span>  使用TCP 持续连接persistent connection</span></p><p><span>POP3 - 邮局协议第三个版本 占用端口号 </span><strong><span>110</span></strong></p><p><span>IMAP - 交互式邮件存取协议</span></p><h3><a name="2-上述协议的作用--位置" class="md-header-anchor"></a><span>2. 上述协议的作用 &amp; 位置</span></h3><p><img src="D:\学习笔记\计算机网络\重要图片图床\电子邮件协议作用在什么地方.png" referrerpolicy="no-referrer" alt="电子邮件协议作用在什么地方"></p><p><span>POP3 和IMAP 的区别：</span></p><p><span>POP3 一旦用户下载后，服务器就不再保存这个邮件</span></p><p><span>IMAP 则把邮件长久的存储在服务器中，用户的更改可以更新到服务器里</span></p><p>&nbsp;</p><h2><a name="7-dns-知识点总结" class="md-header-anchor"></a><span>7. DNS 知识点总结</span></h2><h3><a name="1-把网站的名字-映射成-ip地址" class="md-header-anchor"></a><span>1. 把网站的名字 映射成 ip地址</span></h3><p>&nbsp;</p><h3><a name="2-特点" class="md-header-anchor"></a><span>2. 特点</span></h3><ol start='' ><li><span>是应用层的协议 和HTTP SMTP IMAP POP3 一样都是应用层协议</span></li><li><span>占用端口 </span><strong><span>53</span></strong></li></ol><p>&nbsp;</p><h3><a name="3一个dns-查询流程的例子" class="md-header-anchor"></a><span>3.一个DNS 查询流程的例子</span></h3><p><img src="D:\学习笔记\计算机网络\重要图片图床\DNS查询.png" referrerpolicy="no-referrer" alt="DNS查询"></p><p><span>具体流程为：以</span><a href='http://www.amazon.com' target='_blank' class='url'>www.amazon.com</a><span> 为例</span></p><p><span>查询根DNS服务器  --- 得到 .com DNS 服务器</span></p><p><span>查询 .com DNS 服务器 --- 得到 amazon.com DNS 服务器地址</span></p><p><span>查询amazon.com DNS 服务器 --- 得到 </span><a href='http://www.amazon.com' target='_blank' class='url'>www.amazon.com</a><span> 的IP地址</span></p><h4><a name="tld" class="md-header-anchor"></a><span>TLD</span></h4><p><span>TLD(top-level domain)顶级域名 维护了诸如com , org , job , edu 等 以及顶级国家域名 cn , au , uk</span></p><p><span>由 </span><strong><span>Network Solutions</span></strong><span> 这一组织维护</span></p><p>&nbsp;</p><h4><a name="authoritative-dns-server" class="md-header-anchor"></a><span>authoritative DNS server</span></h4><p><span>authoritative DNS servers 通常由组织所提供 ， 由组织维护</span></p><p>&nbsp;</p><h3><a name="迭代查询-vs-递归查询" class="md-header-anchor"></a><span>迭代查询 VS 递归查询</span></h3><p><span>首先，我们要了解本地DNS server 的作用 ， 它起一个</span><strong><span>代理</span></strong><span>的作用 为一个区域内的所有主机提供服务</span></p><p>&nbsp;</p><p><strong><span>迭代查询</span></strong><span> 关键看</span><strong><span>是不是本地查所有</span></strong><span>。</span></p><p><strong><span>递归查询</span></strong><span> 关键看</span><strong><span>是不是一个查一个</span></strong></p><p>&nbsp;</p><p>&nbsp;</p><h1><a name="计网第五课要点记录" class="md-header-anchor"></a><span>计网第五课要点记录</span></h1><p><span>-------------------------------------------这节课学传输层---------------------------------------------</span></p><p><strong><span>一个宏观上的认识</span></strong><span>：</span></p><p><em><span>传输层提供逻辑上</span><strong><span>进程与进程</span></strong><span>间的通信</span></em></p><p><em><span>网络层提供逻辑上</span><strong><span>主机与主机</span></strong><span>见的通信</span></em></p><h2><a name="1-传输层数据单元" class="md-header-anchor"></a><span>1. 传输层数据单元</span></h2><p><span>传输层数据单元是</span><strong><span>Segment</span></strong><span> 中文译为</span><strong><span>报文段</span></strong><span> ，是由上层应用层的Message 分割来的</span></p><p>&nbsp;</p><h2><a name="2-tcpudp-的特点" class="md-header-anchor"></a><span>2. TCP/UDP 的特点</span></h2><h3><a name="tcp" class="md-header-anchor"></a><span>TCP</span></h3><p><span>面向连接</span></p><p><span>流量控制</span></p><p><span>拥塞控制</span></p><h3><a name="udp" class="md-header-anchor"></a><span>UDP</span></h3><p><span>朴实无华(No-frills)的尽最大努力传播</span></p><p>&nbsp;</p><p><strong><span>注意</span></strong><span>： 二者都不提供</span><strong><span>时延保证</span></strong><span>以及</span><strong><span>带宽保证</span></strong></p><p>&nbsp;</p><h2><a name="3多路复用multiplexing和多路分解demultiplexing）" class="md-header-anchor"></a><span>3.多路复用(multiplexing)和多路分解(demultiplexing）</span></h2><p><span>多路复用：处理来自不同套接字的数据，并分别给他们加上合适的首部(Header)</span></p><p><span>多路分解：通过头部信息解包，然后交付给正确的套接字</span></p><p>&nbsp;</p><p><span>TCP 的socket 被唯一个</span><strong><span>四元组</span></strong><span>唯一标识着：</span></p><p><span>源IP、源端口号、目的IP、目的端口号</span></p><p>&nbsp;</p><p><span>UDP socket 是一个</span><strong><span>二元组</span></strong><span>：</span></p><p><strong><span>源端口号</span></strong><span>、</span><strong><span>目的端口号</span></strong></p><p>&nbsp;</p><p><strong><span>对于每个请求，非持久HTTP将具有不同的套接字</span></strong></p><p>&nbsp;</p><h2><a name="4udp-知识点总结" class="md-header-anchor"></a><span>4.UDP 知识点总结</span></h2><p>&nbsp;</p><h3><a name="1-使用udp-的应用层协议" class="md-header-anchor"></a><span>1. 使用UDP 的应用层协议</span></h3><p><span>DNS、SNMP</span></p><p>&nbsp;</p><h3><a name="2-使用udp-如何进行可靠数据传输" class="md-header-anchor"></a><span>2. 使用UDP 如何进行可靠数据传输</span></h3><p><span>答：在应用层建立检验机制 或 在根据不同的应用特点建立恢复机制</span></p><p>&nbsp;</p><h3><a name="3udp-报文段的header" class="md-header-anchor"></a><span>3.UDP 报文段的Header</span></h3><p><img src="D:\学习笔记\计算机网络\重要图片图床\UDP头部.png" referrerpolicy="no-referrer" alt="UDP头部"></p><p><span>UDP的优点：</span></p><p><span>没有建立连接的过程，减少了delay</span></p><p><span>更简单 ， 没有连接状态的维护</span></p><p><span>更小的Header Size</span></p><p><span>没有拥塞控制，这意味着，包可以更快地“发射”出去</span></p><p>&nbsp;</p><h2><a name="5-rdt-版本演进" class="md-header-anchor"></a><span>5. rdt 版本演进 </span></h2><p>&nbsp;</p><h3><a name="rdt10" class="md-header-anchor"></a><span>rdt1.0</span></h3><p><span>完美的信道 没有</span><strong><span>比特错误</span></strong><span>和</span><strong><span>丢包</span></strong></p><p><span>所以不需要建立恢复机制</span></p><p>&nbsp;</p><h3><a name="rdt20" class="md-header-anchor"></a><span>rdt2.0</span></h3><p><span>会遇到比特翻转这样的错误，但不会考虑</span><strong><span>丢包(package loss)</span></strong></p><h4><a name="rdt20-n227" class="md-header-anchor"></a><span>rdt2.0</span></h4><p><span>接收端回馈ACK OR NAK 来反馈是不是接收到正确的segment</span></p><p><strong><span>致命缺陷</span></strong><span>：ACK OR NAK 同样可能发生错误 ， 这样可能导致</span><strong><span>发重复的包</span></strong><span>。</span></p><p>&nbsp;</p><h4><a name="rdt21" class="md-header-anchor"></a><span>rdt2.1</span></h4><p><span>使用Sequence number(0 ,1)交替</span></p><p>&nbsp;</p><h4><a name="rdt22" class="md-header-anchor"></a><span>rdt2.2</span></h4><p><span>取消NAK ，因为ACK 序号等效NAK，故取消</span></p><p>&nbsp;</p><h3><a name="rdt30" class="md-header-anchor"></a><span>rdt3.0</span></h3><p><span>在既有</span><strong><span>比特错误</span></strong><span>和</span><strong><span>丢包</span></strong><span>的信道上传输数据</span></p><p><span>新的方法：</span></p><p><span>-设置一个计时器(timer)</span></p><p>&nbsp;</p><p><span>rdt3.0的行为如下图所示：</span></p><p><img src="D:\学习笔记\计算机网络\重要图片图床\rdt3.0的行为.png" referrerpolicy="no-referrer" alt="rdt3.0的行为"></p><p>&nbsp;</p><p><span>rdt3.0 固然可以应对上述情况，但是效率太低，这里有一个计算是算</span><strong><span>用户传输文件的利用率utilization</span></strong></p><p>&nbsp;</p><p><span>要记住公式！！！！</span></p><p><img src="D:\学习笔记\计算机网络\重要图片图床\rdt利用率.png" referrerpolicy="no-referrer" alt="rdt利用率"></p><p>&nbsp;</p><p>&nbsp;</p><h4><a name="采用流水线pipeline方法增大利用率" class="md-header-anchor"></a><span>采用</span><strong><span>流水线(pipeline)方法</span></strong><span>增大利用率</span></h4><p><span>流水线方法有两个：</span><strong><span>Go-back-N</span></strong><span> 和 </span><strong><span>Selective Search</span></strong></p><p><img src="D:\学习笔记\计算机网络\重要图片图床\流水线协议.png" referrerpolicy="no-referrer" alt="流水线协议"></p><h4><a name="回退n步的细节" class="md-header-anchor"></a><span>回退n步的细节</span></h4><p><span>返回的ack只能是</span><strong><span>严格连续递增</span></strong><span>的，ack 包之间没有间隔</span></p><p><span>对一个窗口内</span><strong><span>最早发出的包</span></strong><span> 设定计时器，超时则</span><strong><span>重新传送</span></strong><span>窗口内所有的packet。</span></p><p>&nbsp;</p><p><span>GBN工作流程如图所示：</span></p><p><img src="D:\学习笔记\计算机网络\重要图片图床\GBN.png" referrerpolicy="no-referrer" alt="GBN"></p><p><img src="D:\学习笔记\计算机网络\重要图片图床\GBN_Sender.png" referrerpolicy="no-referrer" alt="GBN_Sender"></p><h4><a name="选择性重发的细节" class="md-header-anchor"></a><span>选择性重发的细节</span></h4><p><span>对一个窗口内的每一个packet 发单独的ack</span></p><p><span>对每一个packet维护一个</span><strong><span>计时器</span></strong></p><p>&nbsp;</p><h2><a name="tcp-flow-control--congestion-control" class="md-header-anchor"></a><span>TCP FLow Control &amp; Congestion Control</span></h2><h3><a name="flow-control" class="md-header-anchor"></a><span>FLow Control</span></h3><p><img src="D:\学习笔记\计算机网络\重要图片图床\TcpFlowControl.png" referrerpolicy="no-referrer"></p><p><strong><span>rwnd</span></strong><span> 用来描述 free buffer space的大小，它是receiver端回传给sender 的报文里的数据，用来预防buffer 的溢出 </span></p><p>&nbsp;</p><h3><a name="retransmission-的三种情景" class="md-header-anchor"></a><span>retransmission 的三种情景</span></h3><p><img src="D:\学习笔记\计算机网络\重要图片图床\重传输1.png" referrerpolicy="no-referrer" alt="重传输1"></p><p><span>图一：没有收到ack 意味着</span><strong><span>发送端滑窗不能向后移动</span></strong><span>所以发的Seq 还是92</span></p><p><span>图二：再timeout以内，发端没有收到ack ， 意味着发端的滑动窗口不能后移，所以重发时还是Seq = 92，但是看收端， 以累计ack的特点， 收端实打实的收到了累计的ack ，所以最后一次给发端的</span><strong><span>ACK是120</span></strong></p><p>&nbsp;</p><p><img src="D:\学习笔记\计算机网络\重要图片图床\重传输2.png" referrerpolicy="no-referrer" alt="重传输2"></p><p><span>图三：下一个Seq的值 只与它上次的ACK 挂钩 ， 一个重要前提是 ACK 是</span><strong><span>累计确认的</span></strong></p><p>&nbsp;</p><h3><a name="tcp-fast-retransmissiontcp-快速重传）" class="md-header-anchor"></a><span>TCP fast retransmission（tcp 快速重传）</span></h3><p><span>当sender 收到相同的</span><strong><span>3</span></strong><span> 个ACK 时， 把</span><strong><span>unack的全部重传</span></strong></p><p>&nbsp;</p><h1><a name="计网第七课第八课第九课知识点总结" class="md-header-anchor"></a><span>计网第七课、第八课、第九课知识点总结</span></h1><p><span>总述：这几节课是将网络层的 ， 分别介绍了网络层的 数据平面和 控制平面</span></p><p><span>Data Plane：专注于一个数据报在一个路由中是如何被处理的</span></p><p><span>Control Plane：从宏观上认识路由过程，数据报是如何跳转的</span></p><ul><li><p><span>traditional routing algorithm：per-routing control 就是每个路由器运行自己的路由算法</span></p></li><li><p><span>SDN 软件定义网络， 远程服务器来和每个路由的控制代理(CA)进行交互</span></p><p>&nbsp;</p></li></ul><h2><a name="1-data-plane" class="md-header-anchor"></a><span>1. Data Plane</span></h2><h3><a name="路由器的结构" class="md-header-anchor"></a><span>路由器的结构：</span></h3><ol start='' ><li><p><span>routing processor  - 软件 ，运行路由选路算法</span></p></li><li><p><span>input port -硬件，由三部分组成</span></p><p><span>	</span><span>2.1 line termination  做bit 层面的接受</span></p><p><span>	</span><span>2.2 link layer p&#39;rotocal  根据不同的链路层协议组装成帧</span></p><p><span>	</span><span>2.3 look up forwarding 部分， </span><strong><span>在这里每一个数据报就已经知道了自己的下一跳在哪了</span></strong><span> </span></p></li><li><p><span>switching fabric 用于实现把数据包分到不同的出口  基于</span><strong><span>crossbar</span></strong><span> 的高效电路结构</span></p></li><li><p><span>output port 是input 的逆过程，唯一需要注意的是，output queueing，人们研究了多种算法 合理安排数据报怎么从排队中出去 </span></p><p><span>它不一定就是一个简单的队列，它可能是，比如多个带不同权重的队列，类似进程调度</span></p></li></ol><p>&nbsp;</p><h3><a name="ip-数据报的格式" class="md-header-anchor"></a><span>IP 数据报的格式</span></h3><p><img src="D:\学习笔记\计算机网络\重要图片图床\ip数据报.png" referrerpolicy="no-referrer" alt="ip数据报"></p><p><span>我们可以看到头部最少</span><strong><span>20</span></strong><span>个字节，还有40个字节是可选的(optional)</span></p><p><span>在type of service 字段，我们可以看出ip 是best-effort 类型的</span></p><p><span>每一跳 time to live字段就减少一，当减少至0时，就丢弃这个数据报</span></p><p>&nbsp;</p><p>&nbsp;</p><p><span>由于链路层有</span><strong><span>MTU（Max Transfer Size）</span></strong><span> 所以IP数据报经常需要 fragmentation ， 并在 </span><strong><em><span>目的端</span></em></strong><span>  进行组装(Reassembly) 务必记住是在最后的</span><strong><span>终点端系统</span></strong><span> 进行的组装</span></p><p><span>这里有</span><strong><em><span>计算题</span></em></strong><span>需要掌握</span></p><p><img src="D:\学习笔记\计算机网络\重要图片图床\ip数据报的分包.png" referrerpolicy="no-referrer" alt="ip数据报的分包"></p><p>&nbsp;</p><h3><a name="子网subnet）" class="md-header-anchor"></a><span>子网（Subnet）</span></h3><p><span>给定一个IP号，它被分为了两部分： Subnet part 和host part</span></p><p><strong><span>子网</span></strong><span> 就是subnet part </span><strong><span>相同</span></strong><span> 的一组ip</span></p><p>&nbsp;</p><p><span>子网的记法：ip + 子网掩码   斜杠记法（xxxx.xxxx.xxxx.xxxx/#)   也就是CIDR(Class InterDomin Routing) </span><strong><span>无类别域间路由技术</span></strong></p><p><span>notice：#代表一个数字，这个数字表示子网掩码中有</span><strong><span>连续的1的个数</span></strong></p><p>&nbsp;</p><p><span>子网掩码的用法：使用</span><strong><span>子网掩码</span></strong><span> 与 </span><strong><span>ip</span></strong><span>号 </span><strong><span>按位</span></strong><span> 进行 </span><strong><span>与运算</span></strong><span>，得到的运算结果 就是这一集合的</span><strong><span>子网号</span></strong></p><p>&nbsp;</p><p><span>IP 的 ABC类分类（已经是被淘汰的技术了），有的题会通过给你一个ip 通过其</span><strong><span>前8个bit</span></strong><span>(如下图所示)让你判断出它的类型，从而得到它的子网掩码(Mask)</span></p><p><img src="D:\学习笔记\计算机网络\重要图片图床\IP的abc类网址.png" referrerpolicy="no-referrer" alt="IP的abc类网址"></p><h3><a name="natnetwork-address-transition）技术" class="md-header-anchor"></a><span>NAT（Network Address Transition）技术</span></h3><h4><a name="什么是私有ip地址" class="md-header-anchor"></a><span>什么是私有IP地址</span></h4><p><img src="D:\学习笔记\计算机网络\重要图片图床\私有IP.png" referrerpolicy="no-referrer" alt="私有IP"></p><h4><a name="nat的工作流程" class="md-header-anchor"></a><span>NAT的工作流程：</span></h4><p><img src="D:\学习笔记\计算机网络\重要图片图床\NAT工作流程.png" referrerpolicy="no-referrer" alt="NAT工作流程"></p><p><span>1.首先定义一个私有IP到一个因特网的ip</span></p><p><span>2.NAT路由器 把一个</span><strong><span>（私有IP，端口号0）</span></strong><span> 映射成</span><strong><span>（因特网公网IP，端口号1）</span></strong><span> NOTICE：两个端口号不同，注意看图！！！，接着，在NAT transition table 里记录这个映射关系</span></p><p><span>按常识，我们只需要给路由器的网卡一个设置成非私有IP，一个设置成私有IP就彳亍。</span></p><p><span>3.位于Internet的服务器给</span><strong><span>路由器的因特网公网IP网卡口</span></strong><span>回复</span></p><p><span>4对照</span><strong><span>转换表</span></strong><span>找到（私有IP，端口号0）把包传递过去</span></p><p>&nbsp;</p><h4><a name="它的争议点在哪里" class="md-header-anchor"></a><span>它的争议点在哪里：</span></h4><p><span>用到了port number，这是运输层用的，这样破坏了分层带来的封装性。</span></p><p><span>违反了端到端（end to end）规则</span></p><p>&nbsp;</p><h3><a name="怎样得到ip-地址" class="md-header-anchor"></a><span>怎样得到ip 地址</span></h3><h4><a name="如何得到一个子网号" class="md-header-anchor"></a><span>如何得到一个子网号？</span></h4><p><span> 向你在的ISP 提供者申请</span></p><h4><a name="那isp-怎么得到一大块ip地址" class="md-header-anchor"></a><span>那ISP 怎么得到一大块ip地址： </span></h4><p><span>向</span><strong><span>ICANN</span></strong><span>申请</span></p><p><span>ICANN 的作用：</span>
+<span> </span><span>	</span><span>1. 分配地址</span>
+<span> </span><span>	</span><span>2. 管理DNS</span>
+<span> </span><span>	</span><span>3. 分配域名，解决争端</span></p><p>&nbsp;</p><h4><a name="一个主机如何得到自己的ip" class="md-header-anchor"></a><span>一个主机如何得到自己的ip？</span></h4><p><span>通过操作系统的接口写入一个静态的ip(不常见)</span></p><p><span>通过</span><strong><span>DHCP</span></strong><span>（Dynamic Host Configuration Protocol）得到一个动态的ip地址，  它在运输层使用UDP</span></p><p><span>DHCP 还可以返回 子网掩码， DNS的名字和ip，第一跳路由的地址</span></p><p>&nbsp;</p><p><span>DHCP 工作流程 ， 注意其消息全是 </span><strong><span>广播</span></strong><span> 类型</span></p><p><img src="D:\学习笔记\计算机网络\重要图片图床\DHCP.png" referrerpolicy="no-referrer" alt="DHCP"></p><h2><a name="control-plane" class="md-header-anchor"></a><span>Control Plane</span></h2><p><span>在这个平面，我们将介绍一些路由选择的知识，</span></p><p><span>一个重要的先决条件：</span><strong><span>路由协议是找一条good的路径</span></strong><span> 而不是找一个best的路径</span></p><p>&nbsp;</p><p>&nbsp;</p><h3><a name="什么是as自治系统）" class="md-header-anchor"></a><span>什么是AS（自治系统）</span></h3><p><span>一组路由聚合的一个集合成的系统就是一个AS</span></p><p>&nbsp;</p><h4><a name="intra-as-routing" class="md-header-anchor"></a><span>intra-As routing</span></h4><ol start='' ><li><span>是一个as内主机间的路由</span></li><li><span>一个as内的</span><strong><span>所有</span></strong><span> 路由需要使用**相同的选路算法，不同的as间可以选用不同的</span></li><li><span>gateway 就是一个抽象概念，实际上就是一个路由器，一个既连着自己as内的路由器，由连着别的as的路由器就是一个gateway</span></li></ol><p>&nbsp;</p><h4><a name="inter-as-routing" class="md-header-anchor"></a><span>inter-As routing </span></h4><p><span>不同as间的路由</span></p><p>&nbsp;</p><h3><a name="intra--as-routing-protocol" class="md-header-anchor"></a><span>Intra -AS Routing Protocol</span></h3><p><span>RIP - Routing Information Protocol    DV  distinct vector</span></p><p><span>IGRP - Interior Gateway Routing Protocol DV</span></p><p><span>OSPF - Open Shortest Path First   Link State</span></p><p><span>IS-IS</span></p><p>&nbsp;</p><h4><a name="hierarchical-ospf" class="md-header-anchor"></a><span>Hierarchical OSPF</span></h4><p><img src="D:\学习笔记\计算机网络\重要图片图床\OSPF.png" referrerpolicy="no-referrer" alt="OSPF"></p><p><span>注意区分area border router 和 boundary router</span></p><p><span>前者是</span><strong><span>每个area</span></strong><span> 的入口</span></p><p><span>后者是</span><strong><span>每个as</span></strong><span> 的入口</span></p><p><span>backbone routers 是连接所有area的一个阶层</span></p><p>&nbsp;</p><h4><a name="inter---as-routingbgp）" class="md-header-anchor"></a><span>Inter - AS Routing（BGP）</span></h4><p><span>(Routing among ISPs)</span></p><p>&nbsp;</p><p><span>简单介绍一下</span><strong><span>BGP</span></strong><span>（Border Gateway Protocol）</span></p><p><span>它基于 Distinct Vector 算法 ， 连接了不同的AS</span></p><p><span>其上层使用</span><strong><span>TCP</span></strong><span>连接</span></p><p>&nbsp;</p><p><span>eBGP  和 iBGP</span></p><p><img src="D:\学习笔记\计算机网络\重要图片图床\bgp.png" referrerpolicy="no-referrer" alt="bgp"></p><p><span>gateway 运行了i 的 和 e 的</span></p><p><span>其中e 从其他AS内得到某个子网的可达信息</span></p><p><span>i 把得到的可达信息 告诉自己as内的router</span></p><p>&nbsp;</p><h4><a name="bgp里的两个定义" class="md-header-anchor"></a><span>BGP里的两个定义</span></h4><p><span>Path：经过的AS组成的一个列表</span></p><p><span>Next-Hop: 下一个经过的AS</span></p><h4><a name="bgp工作的流程" class="md-header-anchor"></a><span>BGP工作的流程</span></h4><p><span>1.一个核心思想是BGP是基于</span><strong><span>距离向量（distinct vector）</span></strong><span>算法的，每一个eBGP可以理解成一个代理，它会给其他AS的eBGP返回一个Path（见上）。</span></p><p><span>2.一个eBGP的router可能会收到多条Path，所以PATH之间是如何</span><strong><span>取舍</span></strong><span>的呢？</span></p><p><span>	</span><span>1.本地的</span><strong><span>偏好值</span></strong><span>（Preference Value），它也会很大程度上参考不同AS（Autonomy System，自治系统）之间参考</span><strong><span>政策</span></strong><span> （比如在中国不能访问外网）</span></p><p><span>	</span><span>2.最短的AS PATH</span></p><p><span>	</span><span>3.最短的</span><strong><span>下一跳AS</span></strong><span>也叫做hot potato routing，本质上是一种迭代了一次的</span><strong><em><span>贪心算法</span></em></strong></p><p><span>notice：使用热土豆的情况：到一个路由器有多种不同的路径可供选择。</span></p><p><span>	</span><span>4.一些额外的准则</span></p><h4><a name="bgp下如何设置路由器的路由表" class="md-header-anchor"></a><span>BGP下如何设置路由器的路由表</span></h4><p><span>PPT如下图所示：</span></p><p><img src="D:\学习笔记\计算机网络\重要图片图床\bgp路由表.png" referrerpolicy="no-referrer" alt="bgp路由表"></p><p><span>1.通过iBGP，1a 1b 1d 从 </span><strong><span>1c</span></strong><span> 拿到了 到目的地X经历的</span><strong><span>AS PATH</span></strong></p><p><span>2.1d 在 OSPF intra-domin(即在每个AS域内)的帮助下，得知到1c 要走 interface1，于是给目的地X 设置其映射（Mapping）为1</span></p><p><span>3.同理，在OSPF 的帮助下，1a得知自己到1c的一条好路径下一条要走interface2.于是设置路由表一条记录为</span><strong><span>“X - 2”</span></strong></p><p>&nbsp;</p><h3><a name="icmpinternet-control-message-protocol）" class="md-header-anchor"></a><span>ICMP（Internet Control Message Protocol）</span></h3><p><span>1.在主机和路由器之间使用</span></p><p><span>2.</span><strong><span>被封装</span></strong><span>进ip数据包中，就是ip数据报的data部分是ICMP报文</span></p><p>&nbsp;</p><h1><a name="计网第十一课十二课知识点总结" class="md-header-anchor"></a><span>计网第十一课、十二课知识点总结</span></h1><p><span>综述：讲的是链路层</span></p><h2><a name="linklayer-提供的服务" class="md-header-anchor"></a><span>Linklayer 提供的服务：</span></h2><p><span>1.把数据报（datagram）封装成帧，注意！！！ 即加</span><strong><span>header 也加 trailer</span></strong><span> ，这不同意其他的层，这个加尾巴的</span></p><p><span>2.对信道的接入(学名叫</span><strong><span>随机接入random access</span></strong><span>)</span></p><p><span>3.使用MAC地址完成识别src 和 dest</span></p><p><span>4 </span><strong><span>*reliable deliver between nodes *</span></strong><span>提供可靠的数据传输</span></p><p>&nbsp;</p><p><span>5.提供flow control 、error detection、error correction(不常见)、half-duplex &amp; full-duplex</span></p><p>&nbsp;</p><p>&nbsp;</p><h2><a name="multi-access-protocol" class="md-header-anchor"></a><span>Multi access protocol</span></h2><p><span>两种方式：</span></p><p><span>	</span><span>PPP ： 是 point-to-point 是用在拨号上网</span></p><p><span>	</span><span>broadcast：（shared wired or medium）</span></p><p><span>老式的以太网、HFC（混合光纤同轴电缆,欧美区常见）、802.11 wireless LAN</span></p><p>&nbsp;</p><p>&nbsp;</p><h4><a name="3种broadcast-的类别" class="md-header-anchor"></a><span>3种broadcast 的类别</span></h4><p><span>1.partition 把信道按照时隙或信号的频率分割</span></p><p><span>2.random access 大家一起用一个信道，然后允许碰撞，并有回复数据的机制</span></p><p><span>3.taking turns  轮流发言</span></p><p>&nbsp;</p><h5><a name="1partition-的方法" class="md-header-anchor"></a><span>1.partition 的方法</span></h5><p><span>FDMA - frequency division multiple access</span></p><p><span>把不同的频率 分成几个部分给每个接口用</span></p><p><span>TDMA - time division multiple access</span></p><p><span>分成几个时间片，每个接口对时隙的占用体现在 </span><strong><span>transmission delay</span></strong><span> 上，教材配图如下</span></p><p><img src="D:\学习笔记\计算机网络\重要图片图床\TDMA.png" referrerpolicy="no-referrer" alt="TDMA"></p><h5><a name="2random-access随机接入）几种协议" class="md-header-anchor"></a><span>2.random access（随机接入）几种协议</span></h5><p><span>本部分介绍</span><strong><span>pure aloha</span></strong><span> &amp; </span><strong><span>slotted aloha</span></strong></p><p>&nbsp;</p><p><span>Pure Aloha：</span></p><p><span>帧一到网卡口，就发送出去</span></p><p><img src="D:\学习笔记\计算机网络\重要图片图床\purealoha.png" referrerpolicy="no-referrer" alt="purealoha"></p><p><span>Slotted Aloha：</span></p><p><img src="D:\学习笔记\计算机网络\重要图片图床\saloha.png" referrerpolicy="no-referrer" alt="saloha"></p><p>&nbsp;</p><p>&nbsp;</p><p><span>基于上述协议，我们想到了检测冲突</span></p><p><span>因此我们有了CSMA（Carrier Sense Multi Access）</span></p><p><span>核心思想就是</span><strong><em><span>Listen Before Talk</span></em></strong></p><p><span>碰撞还是</span><strong><span>有可能发生</span></strong><span>的因为propagation delay的存在</span></p><p>&nbsp;</p><p><span>进一步解决问题，我们有了</span><strong><span>CSMA/CD</span></strong><span> CD 是collision detection的缩写</span></p><p><span>	</span><span>提供短时间内的碰撞检测</span></p><p><span>	</span><span>碰撞的传输被丢弃</span></p><p><span>对于有线的传输，这足够了， 对于无线的传输，</span><strong><span>CSMA/CA</span></strong><span>（collision avoidance）是被使用的</span></p><p>&nbsp;</p><h2><a name="mac-介绍" class="md-header-anchor"></a><span>MAC 介绍</span></h2><p>&nbsp;</p><h3><a name="mac基本概念" class="md-header-anchor"></a><span>MAC基本概念</span></h3><p><span>MAC 地址的作用像是快递中“最后一公里的作用“</span></p><p>&nbsp;</p><p><span>每一个</span><strong><span>网卡（Network Interface Card）</span></strong><span> 都有一个LAN地址 即MAC地址，它被烧录进NIC的ROM中</span></p><p><span>MAC地址是一个48bit（6字节）</span></p><p><span>企业买走前三个字节，后三个字节自己分配</span></p><p>&nbsp;</p><p><span>MAC地址不会随你所处的网络环境改变而改变，因此它是portable(便携)的。</span></p><p>&nbsp;</p><h3><a name="与mac有关的协议arpaddress-resolution-protocol）" class="md-header-anchor"></a><span>与MAC有关的协议ARP（Address Resolution Protocol）</span></h3><p><span>一个LAN中的每个IP节点，即主机，路由器，内部都有一张ARP表 ， 用以映射IP地址到MAC地址， 同时还设有一TTL值。</span></p><p>&nbsp;</p><p><span>同一LAN中的ARP 工作流程：</span></p><p><img src="D:\学习笔记\计算机网络\重要图片图床\同一LAN中的ARP.png" referrerpolicy="no-referrer" alt="同一LAN中的ARP"></p><p>&nbsp;</p><p><span>当主机A发现B不在 A本地的ARP表中， A 就 </span><strong><span>广播</span></strong><span>一个ARP 请求数据包，广播的MAC地址是写死的，就是FF-FF-FF-FF-FF-FF，这个请求数据包是包含目的主机</span><strong><span>B的IP地址</span></strong><span>的。</span></p><p><span>每个IP节点都会收到这个ARP请求，但只有IP匹配的节点会</span><strong><span>做回复</span></strong><span>，它</span><strong><span>单独的</span></strong><span>给A回复自己的ARP地址以及之后的</span><strong><span>数据报（Datagram）</span></strong></p><p>&nbsp;</p><p><span>Routing to Another LAN的情况：</span></p><p><span>记住上课讲的一句话：</span><strong><em><span>对于这种情况下链路层发送的帧，它封装的IP地址是不会变的，变的是下一跳的MAC地址</span></em></strong></p><p>&nbsp;</p><p>&nbsp;</p><h2><a name="广域网" class="md-header-anchor"></a><span>广域网</span></h2><p>&nbsp;</p><h3><a name="以太网技术" class="md-header-anchor"></a><span>以太网技术</span></h3><p><span>在这部分主要介绍以太网（Ethernet）</span></p><p><span>首先分辨一些概念，广域网就是一个区域很大的网络</span></p><p><span>以太网是一种</span><strong><span>有线的（Wired）</span></strong><span>实现技术 ， 对比在无线领域 我们有WLAN （Wiredless） LAN</span></p><p>&nbsp;</p><p><span>可以把以太网理解成是一种封装，对物理层各种各样的线路做了封装， 因此</span><strong><span>它对上层透明，可以有多种速度选择</span></strong><span>，它定义在802.3中</span></p><p><img src="D:\学习笔记\计算机网络\重要图片图床\以太网.png" referrerpolicy="no-referrer" alt="以太网"></p><p>&nbsp;</p><h3><a name="交换机switch）" class="md-header-anchor"></a><span>交换机（Switch）</span></h3><p><span>交换机可以看作是多个不同方向的网桥的堆叠</span></p><p>&nbsp;</p><p><strong><span>交换机的特点：</span></strong></p><p><span>1.选择性转发</span></p><p><span>2.对用户透明</span></p><p><span>3.即插即用（plug-and-play）</span></p><p><span>4.自学习（self-learning）</span></p><p><span>5.隔离碰撞域（collision domin）：以太网协议运行在交换机每一个输入链路上，所以每条链路有它自己的碰撞域</span></p><p><span>6.帧过滤（Frame filter）</span></p><p>&nbsp;</p><p><span>自学习算法流程：</span></p><p><img src="D:\学习笔记\计算机网络\重要图片图床\switch自学习.png" referrerpolicy="no-referrer" alt="switch自学习"></p><p><span>一句话：表里找不到就每个链路全问一遍，有就直接</span><strong><span>selectively</span></strong><span>给目的节点就完事了</span></p><p>&nbsp;</p></div>
+</body>
+</html>
